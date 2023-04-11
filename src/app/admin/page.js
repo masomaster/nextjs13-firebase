@@ -4,6 +4,19 @@ import React from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { getAuth, signOut } from "firebase/auth";
+
+const auth = getAuth();
+
+function handleSignOut() {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+}
 
 function Page() {
   const { user } = useAuthContext();
@@ -16,6 +29,7 @@ function Page() {
   return (
     <>
       <h1>Only logged in users can view this page</h1>{" "}
+      <button onClick={handleSignOut}>Sign Out</button>
       <Link href="/">Home</Link>
     </>
   );

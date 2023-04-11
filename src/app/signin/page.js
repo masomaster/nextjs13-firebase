@@ -50,7 +50,7 @@ function Page() {
               placeholder="password"
             />
           </label>
-          <button type="submit">Sign up</button>
+          <button type="submit">Sign In</button>
         </form>
         <p>Test account is "m@m.com" pw "mmmmmm"</p>
       </div>
